@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 40
   jumpForce: 7
-  jumpRadius: 0.35
+  jumpRadius: 0.38
   layerGround:
     serializedVersion: 2
     m_Bits: 64
@@ -128,12 +128,12 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 722218331645037196}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: f5ef347cac6e8fa4189618a388e9c7a1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.0000002, y: 1, z: 0.1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.0000002, y: 0.95865357, z: 0.1}
+  m_Center: {x: 0, y: -0.02067323, z: 0}
 --- !u!54 &-7758170605051924986
 Rigidbody:
   m_ObjectHideFlags: 0

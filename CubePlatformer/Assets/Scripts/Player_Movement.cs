@@ -47,7 +47,7 @@ public class Player_Movement : MonoBehaviour
     {
         if (Input.GetButton("Jump"))
         {
-            if(Physics2D.OverlapCircle(groundCheck.position, jumpRadius, layerGround))
+            if(Physics.OverlapSphere(groundCheck.position, jumpRadius, layerGround).Length > 0)
             {
                 myRb.velocity = new Vector2(myRb.velocity.x, jumpForce);
             }
