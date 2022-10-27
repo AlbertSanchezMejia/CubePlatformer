@@ -12,7 +12,7 @@ public class Portal_Collisions : MonoBehaviour
         {
             if (Portals_Manager.instance.PlayersAreDeactivated())
             {
-                Portals_Manager.instance.SpawnNewPlayer(transform.position, otherPortal.position, other.gameObject.transform.position);
+                Portals_Manager.instance.SpawnNewPlayer(this.transform, otherPortal, other.gameObject.transform.position);
             }
         }
     }

@@ -29,16 +29,17 @@ public class Portals_Manager : MonoBehaviour
         return (player_1.activeInHierarchy == false || player_2.activeInHierarchy == false);
     }
 
-    public void SpawnNewPlayer(Vector3 portalEntered, Vector3 portalToExit, Vector3 playerPosition)
+    public void SpawnNewPlayer(Transform portalEntered, Transform portalToExit, Vector3 playerPosition)
     {
-        float xPosDifference = portalEntered.x - playerPosition.x + 0.25f;
-        float yPosDifference = portalEntered.y - playerPosition.y;
+        float xPosDifference = portalEntered.position.x - playerPosition.x + 0.25f;
+        float yPosDifference = portalEntered.position.y - playerPosition.y;
 
-        Vector3 spawnPoint = portalToExit;
+        Vector3 spawnPoint = portalToExit.position;
         spawnPoint.x -= xPosDifference;
         spawnPoint.y -= yPosDifference;
 
         GameObject newPlayer = DeactivatedPlayer();
+        newPlayer.transform.localRotation = portalToExit.localRotation;
         newPlayer.transform.position = spawnPoint;
         newPlayer.SetActive(true);
     }

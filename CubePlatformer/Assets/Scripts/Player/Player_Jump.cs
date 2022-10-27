@@ -2,52 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player_Movement : MonoBehaviour
+public class Player_Jump : MonoBehaviour
 {
-    Rigidbody myRb;
-
-    [Header ("Movement")]
-    [SerializeField] float speed = 30f;
-    float horizontalMovement;
-
     [Header("Jump")]
     [SerializeField] float jumpForce = 11f;
     [SerializeField] float jumpRadius = 0.34f;
     [SerializeField] LayerMask layerGround;
     [SerializeField] Transform groundCheck;
 
-    [Header("Teleporting")]
-    [SerializeField] Rigidbody otherRb;
+    Rigidbody myRb;
 
-    void Awake()
+    void Start()
     {
         myRb = GetComponent<Rigidbody>();
     }
 
-    void OnEnable()
-    {
-        myRb.velocity = otherRb.velocity;
-    }
-
     void Update()
     {
-        horizontalMovement = Input.GetAxis("Horizontal");
-
         Jump();
         SetJumpHeight();
-    }
-
-    void FixedUpdate()
-    {
-        float xMovement = horizontalMovement * speed * Time.fixedDeltaTime * 10;
-        myRb.velocity = new Vector2(xMovement, myRb.velocity.y);
     }
 
     void Jump()
     {
         if (Input.GetButton("Jump"))
         {
-            if(Physics.OverlapSphere(groundCheck.position, jumpRadius, layerGround).Length > 0)
+            if (Physics.OverlapSphere(groundCheck.position, jumpRadius, layerGround).Length > 0)
             {
                 myRb.velocity = new Vector2(myRb.velocity.x, jumpForce);
             }
